@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style3.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css"
+      rel="stylesheet" />
+  </head>
+  <body>
+    <div id="preloader">
+      <img src="./images/loader3.gif" alt="" />
+    </div>
+    <nav>
+      <ul>
+        <li>
+          <a href="./home.html"><i class="ri-arrow-left-line"></i></a>
+        </li>
+        <li href="./home.html">EDIT PROFILE</li>
+        <li></li>
+      </ul>
+    </nav>
+    <div class="container">
+      <div class="image-container">
+        <div class="profile-image">
+          <img src="./images/img2.png" id="userimg" />
+        </div>
+        <div class="inputarea">
+          <input type="text" id="username" /><button
+            id="namechange"
+            onclick="changeusername()">
+            change
+          </button>
+        </div>
+        <div class="chooseoption">
+          <ul>
+            <li id="avatar" class="active" onclick="moveavatarside()">
+              Avatar
+            </li>
+            <li id="edit" onclick="movecontentpage()">Edit</li>
+          </ul>
+        </div>
+      </div>
+      <div id="content-parent">
+        <div class="selectarea">
+          <div class="avatars">
+            <div class="heading">
+              <h2>Choose your profile</h2>
+            </div>
+            <ul>
+              <li onclick="setimage('img1.png')">
+                <img src="./images/img1.png" />
+              </li>
+              <li onclick="setimage('img2.png')">
+                <img src="./images/img2.png" />
+              </li>
+              <li onclick="setimage('img3.png')">
+                <img src="./images/img3.png" />
+              </li>
+              <li onclick="setimage('img4.png')">
+                <img src="./images/img4.png" />
+              </li>
+              <li onclick="setimage('img5.png')">
+                <img src="./images/img5.png" />
+              </li>
+              <li onclick="setimage('img6.png')">
+                <img src="./images/img6.png" />
+              </li>
+            </ul>
+          </div>
+          <div class="editcontent"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="../node_modules/axios/dist/axios.min.js"></script>
+
+  <script src="./edit.js"></script>
+</html>

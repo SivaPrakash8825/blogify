@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="preloader">
+      <img src="./images/loader3.gif" alt="" />
+    </div>
+    <div class="login-box">
+      <div class="circle1"></div>
+      <div class="circle2"></div>
+      <div class="box1">
+        <div class="log-header">
+          <h2>login</h2>
+        </div>
+
+        <input placeholder="email" id="logmail" />
+        <input placeholder="password" type="password" id="logpass" />
+        <button id="login" onclick="postlogdata()">login</button>
+        <a id="log-next" href="regis.html">register here?</a>
+      </div>
+    </div>
+  </body>
+  <script src="../node_modules/axios/dist/axios.min.js"></script>
+  <script src="./script.js"></script>
+</html>

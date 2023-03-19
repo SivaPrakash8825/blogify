@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style2.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css"
+      rel="stylesheet" />
+  </head>
+  <body>
+    <div id="preloader">
+      <img src="./images/loader3.gif" alt="" />
+    </div>
+    <div class="container">
+      <div class="slidemenu active">
+        <div class="slide-holder">
+          <i class="ri-close-line"></i>
+          <div class="user-details">
+            <div class="profile">
+              <img src="./images/img1.png" id="imghead" />
+            </div>
+            <p id="username">siva prakash</p>
+          </div>
+          <ul>
+            <li><a href="#">home</a></li>
+            <li><a href="./create.html">newpost</a></li>
+            <li>
+              <a href="./editprofile.html">editprofile</a>
+            </li>
+            <li><a href="./login.html" onclick="removecookie()">logout</a></li>
+          </ul>
+        </div>
+      </div>
+      <nav class="top-navbar">
+        <div class="nav-left">
+          <img src="./images/logo.png" alt="" />
+        </div>
+        <div class="nav-right">
+          <ul>
+            <li><a href="#">home</a></li>
+            <li><a href="./create.html">newpost</a></li>
+            <li>
+              <a href="./editprofile.html">editprofile</a>
+            </li>
+            <li><a href="./login.html" onclick="removecookie()">logout</a></li>
+          </ul>
+          <div class="profile lets" id="imghead">
+            <img src="./images/img1.png" />
+          </div>
+        </div>
+      </nav>
+      <div class="top-imageholder">
+        <div
+          id="animateslide"
+          data-aos="fade-right"
+          data-aos-offset="300"
+          data-aos-easing="ease-in-sine">
+          <h1>siva prakash</h1>
+          <p>It help share your knowledge and gain information from others</p>
+        </div>
+        <div class="animimg">
+          <img src="./images/bac2.webp" />
+          <img src="./images/gif1.gif" />
+        </div>
+      </div>
+      <div class="postheading">
+        <h1>POST</h1>
+      </div>
+      <div class="postview"></div>
+    </div>
+  </body>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+  <script src="../node_modules/axios/dist/axios.min.js"></script>
+
+  <script src="./home.js"></script>
+</html>

@@ -1,0 +1,388 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  background-color: #f5d0fe;
+  position: relative;
+}
+
+nav {
+  width: 100%;
+  height: 80px;
+  background: #c084fc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
+}
+.profile {
+  width: 50px;
+  height: 50px;
+  background: white;
+
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+.profile img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+.nav-right {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+.user-details {
+  display: flex;
+  padding: 20px;
+  gap: 10px;
+  align-items: center;
+}
+.nav-right ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+a {
+  text-transform: capitalize;
+  font-size: 17px;
+
+  color: #0f172a;
+  text-decoration: none;
+}
+
+.slidemenu {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  z-index: 11;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.slide-holder ul {
+  display: none;
+}
+
+.slidemenu .slide-holder {
+  position: absolute;
+  width: 250px;
+  height: 100vh;
+  list-style: none;
+  top: 0rem;
+  right: 0px;
+  background: white;
+}
+.slidemenu ul {
+  list-style: none;
+  text-transform: uppercase;
+}
+.slidemenu ul li {
+  width: 100%;
+
+  padding: 10px 0px 10px 30px;
+}
+.slide-holder ul li a {
+  color: black;
+}
+.slidemenu ul li:hover {
+  background: darkgray;
+}
+
+.slide-holder i {
+  position: absolute;
+  font-size: 25px;
+  right: 20px;
+  top: 15px;
+  cursor: pointer;
+}
+.active {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .nav-right ul {
+    display: none;
+    list-style: none;
+    text-transform: uppercase;
+  }
+  .slide-holder ul {
+    display: block;
+  }
+}
+
+.top-imageholder {
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: white;
+  overflow: hidden;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+  background-color: #c084fc;
+}
+
+.top-imageholder .animimg {
+  width: 400px;
+  height: 50vh;
+
+  position: relative;
+}
+.top-imageholder .animimg img:nth-child(1) {
+  width: 400px;
+  animation: move infinite linear 3s;
+}
+.top-imageholder .animimg img:nth-child(2) {
+  position: absolute;
+  height: 500px;
+  transform: translate(-80%, 10%);
+}
+
+@keyframes move {
+  0% {
+    transform: translateY(30px) rotateZ(0deg);
+  }
+  50% {
+    transform: translateY(0px) rotateZ(180deg);
+  }
+  100% {
+    transform: translateY(30px) rotateZ(360deg);
+  }
+}
+.postheading {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.postheading h1 {
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+  box-shadow: rgba(216, 95, 224, 0.35) 0px 5px 15px;
+  border-radius: 12px;
+  color: white;
+  background: rgb(228, 157, 249);
+}
+
+.postview {
+  width: 100%;
+  display: flex;
+
+  align-items: center;
+  flex-direction: column;
+}
+
+.postview .usercontent {
+  width: 70%;
+  margin: 20px;
+  padding: 20px 20px 10px 20px;
+  border-radius: 12px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+    rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+  background: white;
+}
+
+.infobtn {
+  display: flex;
+
+  height: 40px;
+  align-items: center;
+  margin-top: 20px;
+
+  border-top: 0.1px solid rgb(157, 149, 149);
+  justify-content: space-between;
+}
+.infobtn .likebtn {
+  display: flex;
+  column-gap: 20px;
+}
+.likebtn .likealign {
+  display: flex;
+}
+.infobtn .likebtn i,
+.infobtn .bookmark i {
+  font-size: 20px;
+}
+
+.boxuser {
+  display: flex;
+  align-items: center;
+  height: 40px;
+}
+
+.boxuser .boxuserimage {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #e0cef2;
+  overflow: hidden;
+}
+
+.boxuser .boxuserimage img {
+  width: 100%;
+  height: 100%;
+}
+i {
+  cursor: pointer;
+}
+#animateslide {
+  width: 250px;
+}
+#animateslide h1 {
+  font-family: "Kanit", sans-serif;
+}
+@media screen and (max-width: 900px) {
+  .top-imageholder {
+    width: 100%;
+    height: 40vh;
+    justify-content: space-around;
+  }
+  .top-imageholder .animimg {
+    width: 200px;
+    height: 40vh;
+
+    position: relative;
+  }
+  .top-imageholder .animimg img:nth-child(1) {
+    width: 350px;
+
+    animation: move infinite linear 3s;
+  }
+  #animateslide {
+    width: 200px;
+    padding-left: 10px;
+  }
+  .top-imageholder .animimg img:nth-child(2) {
+    position: absolute;
+    height: 350px;
+    transform: translate(-20%, -70%);
+  }
+}
+
+.createholder {
+  width: 100%;
+  height: calc(100vh - 80px);
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.createholder .createbox {
+  width: 400px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 12px;
+  background: #c084fc;
+}
+
+.createholder .createbox div:nth-child(1) input {
+  width: 300px;
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+  margin-bottom: 20px;
+  outline: none;
+}
+
+textarea {
+  width: 300px;
+  height: 350px;
+  border-radius: 5px;
+  padding: 10px;
+  resize: none;
+  border: none;
+  outline: none;
+}
+#buttons {
+  width: 80%;
+  height: 25px;
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  width: 70px;
+  height: 30px;
+  text-align: center;
+  border: none;
+  border-radius: 12px;
+}
+
+button:focus {
+  box-shadow: 4px 1px 4px rgb(30, 30, 31);
+}
+
+#buttons button:nth-child(1) {
+  box-shadow: inset 1px 3px 3px rgb(183, 183, 194);
+}
+#buttons button:nth-child(2) {
+  box-shadow: 4px 1px 4px rgb(183, 183, 194);
+}
+.white {
+  color: darkgray;
+}
+.red {
+  color: red;
+}
+
+#showupdated {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+#showupdated .info {
+  width: 400px;
+
+  animation: moveshow 4s infinite linear;
+}
+@keyframes moveshow {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(380%);
+  }
+}
+#preloader {
+  width: 100%;
+  height: 100vh;
+
+  position: fixed;
+  display: grid;
+  background: #585285;
+  place-items: center;
+  z-index: 11;
+}
+
+#preloader img {
+  width: 400px;
+  height: 300px;
+}
+
+.top-navbar .nav-left {
+  width: 90px;
+  height: 90px;
+}
+
+.top-navbar .nav-left img {
+  width: 100%;
+  height: 100%;
+}

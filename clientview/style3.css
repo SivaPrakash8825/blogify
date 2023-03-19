@@ -1,0 +1,236 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 100%;
+}
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+nav ul {
+  width: 100%;
+  height: 60px;
+  background: #e0cef2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+}
+nav ul li:nth-child(1) {
+  padding-left: 40px;
+  font-size: 25px;
+  cursor: pointer;
+}
+nav ul li:nth-child(2) {
+  font-size: 25px;
+}
+.image-container {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 140px;
+  padding: 90px 20px 20px 20px;
+  background: #e0cef2;
+
+  position: relative;
+
+  border-radius: 12px 12px 0 0;
+}
+
+.image-container .profile-image {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: #e3daec;
+  border-radius: 50%;
+  border: 2px solid darkgrey;
+  overflow: hidden;
+  top: -90px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.image-container .profile-image img {
+  width: 100%;
+  height: 100%;
+}
+
+.image-container .inputarea {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+}
+
+.inputarea input {
+  width: 70%;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid black;
+  background: transparent;
+}
+.chooseoption {
+  width: 100%;
+  margin-top: 30px;
+  border-radius: 12px 12px 0 0;
+  background-color: rgb(220, 113, 244);
+  overflow: hidden;
+}
+.chooseoption ul {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  list-style: none;
+}
+.chooseoption ul li {
+  width: 100%;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ul {
+  list-style: none;
+}
+#content-parent {
+  width: 70%;
+  overflow: hidden;
+}
+.selectarea {
+  width: 200%;
+  display: flex;
+  background: #e0cef2;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.selectarea .avatars {
+  width: 100%;
+
+  background: #e0cef2;
+  transform: translateX(0%);
+  transition: 0.5s;
+}
+.avatars ul {
+  display: grid;
+  justify-content: center;
+
+  grid-template-columns: repeat(3, 1fr);
+}
+.avatars ul li {
+  border-radius: 50%;
+  background: rgb(227, 196, 241);
+  margin: 10px;
+  overflow: hidden;
+  border: 2px solid black;
+  cursor: pointer;
+}
+.heading {
+  text-align: center;
+}
+.selectarea .avatars ul li img {
+  width: 100%;
+  transform: scale(1);
+}
+.avatars ul li img:hover {
+  transform: scale(1.2);
+}
+
+.selectarea .editcontent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  background: #e0cef2;
+  transform: translateX(-200%);
+  transition: 0.5s;
+}
+
+.active {
+  background: white;
+}
+
+.usercontent {
+  width: 80%;
+  background: white;
+  margin-top: 20px;
+  border-radius: 12px;
+  padding: 20px;
+}
+.usercontent p {
+  margin-top: 20px;
+}
+.infobtn {
+  display: flex;
+
+  height: 40px;
+  align-items: center;
+  margin-top: 20px;
+
+  border-top: 0.1px solid rgb(157, 149, 149);
+  justify-content: space-between;
+}
+.infobtn .likebtn {
+  display: flex;
+  column-gap: 20px;
+}
+.editbtn {
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
+}
+.likebtn .likealign {
+  display: flex;
+}
+.editbtn button {
+  width: 70px;
+  border: none;
+  height: 30px;
+  border-radius: 8px;
+  margin: -9px 10px 10px 10px;
+  transition: 0.5s;
+}
+
+.editbtn button:nth-child(1):hover {
+  background: red;
+}
+.editbtn button:nth-child(2):hover {
+  background: green;
+}
+
+#namechange {
+  width: 60px;
+  height: 25px;
+  border: none;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+#namechange:active {
+  background: green;
+}
+
+#preloader {
+  width: 100%;
+  height: 100vh;
+
+  position: fixed;
+  display: grid;
+  background: #585285;
+  place-items: center;
+  z-index: 11;
+}
+
+#preloader img {
+  width: 400px;
+  height: 300px;
+}

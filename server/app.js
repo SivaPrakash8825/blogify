@@ -33,6 +33,7 @@ const con = mysql.createConnection({
 });
 
 app.use(cookieparser());
+
 app.get("/siva", (req, res) => {
   const obj = {
     name: "siva",

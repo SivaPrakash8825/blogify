@@ -3,7 +3,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     withCredentials: true,
   });
   if (vale.data != "exists") {
-    window.location = "http://127.0.0.1:5500/clientview/login.html";
+    window.location = "http://127.0.0.1:5500/clientview/index.html";
   } else {
     setusercontent();
   }

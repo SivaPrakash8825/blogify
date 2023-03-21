@@ -7,8 +7,6 @@ const log_mail = document.querySelector("#logmail");
 const log_pass = document.querySelector("#logpass");
 const user_name = document.querySelector("#user-details");
 
-import axios from "axios";
-
 let val;
 
 const preloader = document.getElementById("preloader");

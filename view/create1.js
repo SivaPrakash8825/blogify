@@ -1,5 +1,5 @@
 function gohomepage() {
-  window.location = "http://127.0.0.1:5500/clientview/home.html";
+  window.location = "http://127.0.0.1:5500/view/home.html";
 }
 const preloader = document.getElementById("preloader");
 window.addEventListener("load", () => {
@@ -24,7 +24,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     withCredentials: true,
   });
   if (vale.data != "exists") {
-    window.location = "http://127.0.0.1:5500/clientview/index.html";
+    window.location = "http://127.0.0.1:5500/view/index.html";
   } else {
     const val = await axios.get("http://127.0.0.1:3030/homedata", {
       withCredentials: true,

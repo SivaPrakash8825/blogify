@@ -9,7 +9,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     withCredentials: true,
   });
   if (vale.data != "exists") {
-    window.location = "http://127.0.0.1:5500/clientview/index.html";
+    window.location = "http://127.0.0.1:5500/view/index.html";
   } else {
     const urlparam = new URLSearchParams(window.location.search);
     const id = urlparam.get("conid");
@@ -39,5 +39,5 @@ async function payload() {
 }
 
 function gohomepage() {
-  window.location = "http://127.0.0.1:5500/clientview/editprofile.html";
+  window.location = "http://127.0.0.1:5500/view/editprofile.html";
 }

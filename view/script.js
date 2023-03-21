@@ -18,7 +18,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     withCredentials: true,
   });
   if (val.data === "exists") {
-    window.location = "http://127.0.0.1:5500/clientview/home.html";
+    window.location = "http://127.0.0.1:5500/view/home.html";
   }
 });
 
@@ -37,7 +37,7 @@ async function postlogdata() {
   console.log(data);
 
   if (data != "error") {
-    window.location.href = "http://127.0.0.1:5500/clientview/home.html";
+    window.location.href = "http://127.0.0.1:5500/view/home.html";
   }
 }
 

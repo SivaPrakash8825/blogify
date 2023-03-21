@@ -3,7 +3,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     withCredentials: true,
   });
   if (vale.data != "exists") {
-    window.location = "http://127.0.0.1:5500/clientview/index.html";
+    window.location = "http://127.0.0.1:5500/view/index.html";
   } else {
     setusercontent();
   }
@@ -135,5 +135,5 @@ function gotoeditpage(val) {
     conid: `${val}`,
   };
   const data = new URLSearchParams(id).toString();
-  window.location = `http://127.0.0.1:5500/clientview/editcontent.html?${data}`;
+  window.location = `http://127.0.0.1:5500/view/editcontent.html?${data}`;
 }

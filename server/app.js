@@ -1,4 +1,4 @@
-const express = require("../node_modules/express");
+const express = require("./node_modules/express");
 const bodyparser = require("body-parser");
 const path = require("path");
 const dotenv = require("dotenv");

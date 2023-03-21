@@ -34,11 +34,11 @@ const con = mysql.createConnection({
 
 app.use(cookieparser());
 
-app.get("https://sivaprakashblog.onrender.com/", (req, res) => {
+app.get("/", (req, res) => {
   res.send("siva");
 });
 
-app.get("https://sivaprakashblog.onrender.com/siva", (req, res) => {
+app.get("/siva", (req, res) => {
   const obj = {
     name: "siva",
     age: "70",
@@ -47,7 +47,7 @@ app.get("https://sivaprakashblog.onrender.com/siva", (req, res) => {
   res.status(201).send(obj);
 });
 
-app.get("https://sivaprakashblog.onrender.com/checkcook", (req, res) => {
+app.get("/checkcook", (req, res) => {
   const check = req.cookies["siva"];
 
   if (check) {
@@ -57,7 +57,7 @@ app.get("https://sivaprakashblog.onrender.com/checkcook", (req, res) => {
   }
 });
 
-app.post("https://sivaprakashblog.onrender.com/regis", (req, res) => {
+app.post("/regis", (req, res) => {
   const { name, pass, curpass } = req.body;
 
   con.query("select * from userids where email=?", [name], async (err, row) => {
@@ -82,7 +82,7 @@ app.post("https://sivaprakashblog.onrender.com/regis", (req, res) => {
   });
 });
 
-app.post("https://sivaprakashblog.onrender.com/logdata", (req, res) => {
+app.post("/logdata", (req, res) => {
   const { name, pass } = req.body;
 
   con.query(
@@ -124,7 +124,7 @@ app.post("https://sivaprakashblog.onrender.com/logdata", (req, res) => {
   );
 });
 
-app.get("https://sivaprakashblog.onrender.com/getavatar/:id", (req, res) => {
+app.get("/getavatar/:id", (req, res) => {
   const { id } = req.params;
 
   con.query("select avatar from avatars where user_id=?", [id], (err, row) => {
@@ -134,7 +134,7 @@ app.get("https://sivaprakashblog.onrender.com/getavatar/:id", (req, res) => {
   });
 });
 
-app.get("https://sivaprakashblog.onrender.com/homedata", async (req, res) => {
+app.get("/homedata", async (req, res) => {
   const data = req.cookies;
   if (data) {
     const decode = await jwt.verify(req.cookies.siva, process.env.SECRET);
@@ -151,18 +151,15 @@ app.get("https://sivaprakashblog.onrender.com/homedata", async (req, res) => {
 });
 function siva(req, res, next) {}
 
-app.get(
-  "https://sivaprakashblog.onrender.com/removecookie",
-  async (req, res) => {
-    res.cookie("siva", "logout", {
-      expires: new Date(0),
-      httpOnly: true,
-    });
-    res.send("removed");
-  }
-);
+app.get("/removecookie", async (req, res) => {
+  res.cookie("siva", "logout", {
+    expires: new Date(0),
+    httpOnly: true,
+  });
+  res.send("removed");
+});
 
-app.get("https://sivaprakashblog.onrender.com/alldata", (req, res) => {
+app.get("/alldata", (req, res) => {
   con.query("select * from usercontents", (err, rows) => {
     if (err) console.log(err);
     else {
@@ -171,12 +168,12 @@ app.get("https://sivaprakashblog.onrender.com/alldata", (req, res) => {
   });
 });
 
-app.get("https://sivaprakashblog.onrender.com/userid", (req, res) => {
+app.get("/userid", (req, res) => {
   const decode = jwt.verify(req.cookies.siva, process.env.SECRET);
   res.send(decode);
 });
 
-app.post("https://sivaprakashblog.onrender.com/setdata", (req, res) => {
+app.post("/setdata", (req, res) => {
   const { titleval, describe } = req.body;
 
   const id = jwt.verify(req.cookies.siva, process.env.SECRET);
@@ -199,7 +196,7 @@ app.post("https://sivaprakashblog.onrender.com/setdata", (req, res) => {
   });
 });
 
-app.get("https://sivaprakashblog.onrender.com/iddata", (req, res) => {
+app.get("/iddata", (req, res) => {
   const id = jwt.verify(req.cookies.siva, process.env.SECRET);
 
   con.query(
@@ -212,7 +209,7 @@ app.get("https://sivaprakashblog.onrender.com/iddata", (req, res) => {
     }
   );
 });
-app.get("https://sivaprakashblog.onrender.com/userdata", (req, res) => {
+app.get("/userdata", (req, res) => {
   const id = jwt.verify(req.cookies.siva, process.env.SECRET);
 
   con.query("select * from avatars where user_id=?", [id.id], (err, rows) => {
@@ -221,7 +218,7 @@ app.get("https://sivaprakashblog.onrender.com/userdata", (req, res) => {
     res.send(rows);
   });
 });
-app.get("https://sivaprakashblog.onrender.com/updatedataid/:id", (req, res) => {
+app.get("/updatedataid/:id", (req, res) => {
   const { id } = req.params;
   con.query("select * from usercontents where id=?", [id], (err, rows) => {
     if (err) console.log(err);
@@ -230,23 +227,20 @@ app.get("https://sivaprakashblog.onrender.com/updatedataid/:id", (req, res) => {
   });
 });
 
-app.post(
-  "https://sivaprakashblog.onrender.com/updatedataid/:id",
-  (req, res) => {
-    const { id } = req.params;
-    const { title, describe } = req.body;
-    con.query(
-      "update usercontents set title=?,describetion=? where id=?",
-      [title, describe, id],
-      (err, rows) => {
-        if (err) console.log(err);
+app.post("/updatedataid/:id", (req, res) => {
+  const { id } = req.params;
+  const { title, describe } = req.body;
+  con.query(
+    "update usercontents set title=?,describetion=? where id=?",
+    [title, describe, id],
+    (err, rows) => {
+      if (err) console.log(err);
 
-        res.send("updated");
-      }
-    );
-  }
-);
-app.post("https://sivaprakashblog.onrender.com/updateusername", (req, res) => {
+      res.send("updated");
+    }
+  );
+});
+app.post("/updateusername", (req, res) => {
   const { username } = req.body;
   const status = jwt.verify(req.cookies.siva, process.env.SECRET);
 
@@ -269,7 +263,7 @@ app.post("https://sivaprakashblog.onrender.com/updateusername", (req, res) => {
   );
 });
 
-app.post("https://sivaprakashblog.onrender.com/increcount/:id", (req, res) => {
+app.post("/increcount/:id", (req, res) => {
   const { id } = req.params;
   const userid = jwt.verify(req.cookies.siva, process.env.SECRET);
   const { count } = req.body;
@@ -289,7 +283,7 @@ app.post("https://sivaprakashblog.onrender.com/increcount/:id", (req, res) => {
     }
   );
 });
-app.post("https://sivaprakashblog.onrender.com/decrecount/:id", (req, res) => {
+app.post("/decrecount/:id", (req, res) => {
   const { id } = req.params;
   const userid = jwt.verify(req.cookies.siva, process.env.SECRET);
   const { count } = req.body;
@@ -310,7 +304,7 @@ app.post("https://sivaprakashblog.onrender.com/decrecount/:id", (req, res) => {
   );
 });
 
-app.get("https://sivaprakashblog.onrender.com/likersdata", async (req, res) => {
+app.get("/likersdata", async (req, res) => {
   const id = await jwt.verify(req.cookies.siva, process.env.SECRET);
   try {
     con.query(
@@ -327,24 +321,21 @@ app.get("https://sivaprakashblog.onrender.com/likersdata", async (req, res) => {
   }
 });
 
-app.get(
-  "https://sivaprakashblog.onrender.com/insertavatar/:name",
-  (req, res) => {
-    const { name } = req.params;
-    con.query("select id from userids where email=?", [name], (err, row) => {
-      if (err) console.log(err);
+app.get("/insertavatar/:name", (req, res) => {
+  const { name } = req.params;
+  con.query("select id from userids where email=?", [name], (err, row) => {
+    if (err) console.log(err);
 
-      con.query(
-        "insert into avatars(avatar,user_id,username) value(?,?,?)",
-        ["img1.png", row[0].id, name],
-        (err, row) => {
-          if (err) console.log(err);
-        }
-      );
-    });
-  }
-);
-app.get("https://sivaprakashblog.onrender.com/deletedata/:id", (req, res) => {
+    con.query(
+      "insert into avatars(avatar,user_id,username) value(?,?,?)",
+      ["img1.png", row[0].id, name],
+      (err, row) => {
+        if (err) console.log(err);
+      }
+    );
+  });
+});
+app.get("/deletedata/:id", (req, res) => {
   const { id } = req.params;
 
   con.query("delete from usercontents where id=?", [id], (err, row) => {
@@ -354,7 +345,7 @@ app.get("https://sivaprakashblog.onrender.com/deletedata/:id", (req, res) => {
   });
 });
 
-app.post("https://sivaprakashblog.onrender.com/updateimg", (req, res) => {
+app.post("/updateimg", (req, res) => {
   const { img } = req.body;
   const id = jwt.verify(req.cookies.siva, process.env.SECRET);
   con.query(

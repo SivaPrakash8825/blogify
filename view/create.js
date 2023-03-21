@@ -5,9 +5,12 @@ window.addEventListener("load", () => {
   preloader.style.display = "none";
 });
 window.addEventListener("DOMContentLoaded", async () => {
-  const vale = await axios.get("http://127.0.0.1:3030/checkcook", {
-    withCredentials: true,
-  });
+  const vale = await axios.get(
+    "https://sivaprakashblog.onrender.com/checkcook",
+    {
+      withCredentials: true,
+    }
+  );
   if (vale.data != "exists") {
     window.location = "http://127.0.0.1:5500/view/index.html";
   } else {
@@ -17,7 +20,9 @@ window.addEventListener("DOMContentLoaded", async () => {
   }
 });
 async function fetchdata(id) {
-  const val = await axios.get(`http://127.0.0.1:3030/updatedataid/${id}`);
+  const val = await axios.get(
+    `https://sivaprakashblog.onrender.com/updatedataid/${id}`
+  );
   const data = val.data;
 
   return data;
@@ -32,10 +37,13 @@ async function setcontent(id) {
 async function payload() {
   const urlparam = new URLSearchParams(window.location.search);
   const id = urlparam.get("conid");
-  const val = await axios.post(`http://127.0.0.1:3030/updatedataid/${id}`, {
-    title: `${title.value}`,
-    describe: `${describe.value}`,
-  });
+  const val = await axios.post(
+    `https://sivaprakashblog.onrender.com/updatedataid/${id}`,
+    {
+      title: `${title.value}`,
+      describe: `${describe.value}`,
+    }
+  );
 }
 
 function gohomepage() {

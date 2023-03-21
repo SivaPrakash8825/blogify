@@ -1,7 +1,10 @@
 window.addEventListener("DOMContentLoaded", async () => {
-  const vale = await axios.get("http://127.0.0.1:3030/checkcook", {
-    withCredentials: true,
-  });
+  const vale = await axios.get(
+    "https://sivaprakashblog.onrender.com/checkcook",
+    {
+      withCredentials: true,
+    }
+  );
   if (vale.data != "exists") {
     window.location = "http://127.0.0.1:5500/view/index.html";
   } else {
@@ -38,7 +41,7 @@ function movecontentpage() {
 }
 
 async function onlyfetchiddata() {
-  let val = await axios.get("http://127.0.0.1:3030/iddata", {
+  let val = await axios.get("https://sivaprakashblog.onrender.com/iddata", {
     withCredentials: true,
   });
   const dat = val.data;
@@ -46,7 +49,7 @@ async function onlyfetchiddata() {
   return dat;
 }
 async function onlyfetchusername() {
-  let val = await axios.get("http://127.0.0.1:3030/userdata", {
+  let val = await axios.get("https://sivaprakashblog.onrender.com/userdata", {
     withCredentials: true,
   });
   const dat = val.data;
@@ -54,7 +57,7 @@ async function onlyfetchusername() {
   return dat;
 }
 async function getuserid() {
-  let val = await axios.get("http://127.0.0.1:3030/userid", {
+  let val = await axios.get("https://sivaprakashblog.onrender.com/userid", {
     withCredentials: true,
   });
   const dat = val.data;
@@ -65,7 +68,9 @@ async function getuserid() {
 async function setprofileavatar() {
   let id = await getuserid();
 
-  let val = await axios.get(`http://127.0.0.1:3030/getavatar/${id.id}`);
+  let val = await axios.get(
+    `https://sivaprakashblog.onrender.com/getavatar/${id.id}`
+  );
   const userimg = (document.getElementById("userimg").src =
     "./images/" + val.data[0].avatar);
 }
@@ -98,7 +103,7 @@ async function deletecontent(val) {
   const sign = confirm("are you sure to delete");
   if (sign) {
     const d = await axios.get(
-      `http://127.0.0.1:3030/deletedata/${val}`,
+      `https://sivaprakashblog.onrender.com/deletedata/${val}`,
       (withCredentials = true)
     );
     setusercontent();
@@ -109,7 +114,7 @@ async function changeusername() {
   const username = document.getElementById("username").value;
   console.log(username);
   const post = await axios.post(
-    `http://127.0.0.1:3030/updateusername`,
+    `https://sivaprakashblog.onrender.com/updateusername`,
     {
       username: username,
     },
@@ -122,7 +127,7 @@ async function setimage(val) {
   const userimg = (document.getElementById("userimg").src = "./images/" + val);
   console.log(val);
   const ele = await axios.post(
-    "http://127.0.0.1:3030/updateimg",
+    "https://sivaprakashblog.onrender.com/updateimg",
     { img: val },
     {
       withCredentials: true,

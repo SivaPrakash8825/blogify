@@ -14,9 +14,12 @@ window.addEventListener("load", () => {
   preloader.style.display = "none";
 });
 window.addEventListener("DOMContentLoaded", async () => {
-  const val = await axios.get("http://127.0.0.1:3030/checkcook", {
-    withCredentials: true,
-  });
+  const val = await axios.get(
+    "https://sivaprakashblog.onrender.com/checkcook",
+    {
+      withCredentials: true,
+    }
+  );
   if (val.data === "exists") {
     window.location = "http://127.0.0.1:5500/view/home.html";
   }
@@ -24,7 +27,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
 async function postlogdata() {
   let val = await axios.post(
-    "http://127.0.0.1:3030/logdata",
+    "https://sivaprakashblog.onrender.com/logdata",
     {
       name: `${log_mail.value}`,
       pass: `${log_pass.value}`,
@@ -42,7 +45,7 @@ async function postlogdata() {
 }
 
 async function senddata() {
-  const val = await axios.post("http://127.0.0.1:3030/regis", {
+  const val = await axios.post("https://sivaprakashblog.onrender.com/regis", {
     name: `${email.value}`,
     pass: `${reg_pass.value}`,
     curpass: `${curpass.value}`,
@@ -55,10 +58,12 @@ async function senddata() {
     reginfo.innerHTML = "";
   }, 3000);
   if (dat.msg === "saved") {
-    await axios.get(`http://127.0.0.1:3030/insertavatar/${dat.ele}`);
+    await axios.get(
+      `https://sivaprakashblog.onrender.com/insertavatar/${dat.ele}`
+    );
   }
 }
 // async function homedata() {
-//   // const val = await axios.post("http://127.0.0.1:3030/home.html");
+//   // const val = await axios.post("https://sivaprakashblog.onrender.com/home.html");
 //   console.log("siva");
 // }

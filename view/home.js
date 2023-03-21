@@ -26,15 +26,21 @@ closebtn.addEventListener("click", () => {
 });
 
 window.addEventListener("DOMContentLoaded", async () => {
-  const vale = await axios.get("http://127.0.0.1:3030/checkcook", {
-    withCredentials: true,
-  });
+  const vale = await axios.get(
+    "https://sivaprakashblog.onrender.com/checkcook",
+    {
+      withCredentials: true,
+    }
+  );
   if (vale.data != "exists") {
     window.location = "http://127.0.0.1:5500/view/index.html";
   } else {
-    const val = await axios.get("http://127.0.0.1:3030/homedata", {
-      withCredentials: true,
-    });
+    const val = await axios.get(
+      "https://sivaprakashblog.onrender.com/homedata",
+      {
+        withCredentials: true,
+      }
+    );
     const dat = val.data;
     setheadimg(dat[0].user_id);
     username.innerHTML = dat[0].username;
@@ -43,37 +49,48 @@ window.addEventListener("DOMContentLoaded", async () => {
 });
 
 async function setheadimg(id) {
-  const val = await axios.get(`http://127.0.0.1:3030/getavatar/${id}`);
+  const val = await axios.get(
+    `https://sivaprakashblog.onrender.com/getavatar/${id}`
+  );
   document.querySelector(".profile img").src = "./images/" + val.data[0].avatar;
   document.querySelector("#imghead img").src = "./images/" + val.data[0].avatar;
 }
 
 async function removecookie() {
-  const val = await axios.get("http://127.0.0.1:3030/removecookie", {
-    withCredentials: true,
-  });
+  const val = await axios.get(
+    "https://sivaprakashblog.onrender.com/removecookie",
+    {
+      withCredentials: true,
+    }
+  );
 
   console.log(val.data);
 }
 async function fetchalldata() {
-  const val = await axios.get("http://127.0.0.1:3030/alldata");
+  const val = await axios.get("https://sivaprakashblog.onrender.com/alldata");
   const dat = val.data;
   return dat;
 }
 
 async function fetchuserid() {
-  const userid = await axios.get("http://127.0.0.1:3030/userid", {
-    withCredentials: true,
-  });
+  const userid = await axios.get(
+    "https://sivaprakashblog.onrender.com/userid",
+    {
+      withCredentials: true,
+    }
+  );
   return userid;
 }
 
 async function getlikerid() {
   const userid = await fetchuserid();
 
-  const val = await axios.get(`http://127.0.0.1:3030/likersdata`, {
-    withCredentials: true,
-  });
+  const val = await axios.get(
+    `https://sivaprakashblog.onrender.com/likersdata`,
+    {
+      withCredentials: true,
+    }
+  );
   const data = val.data;
 
   data.forEach((ele) => {
@@ -134,7 +151,7 @@ async function clicklikebtn(val) {
     id.classList.add("red");
     count.innerHTML = add + 1;
     await axios.post(
-      `http://127.0.0.1:3030/increcount/${val}`,
+      `https://sivaprakashblog.onrender.com/increcount/${val}`,
       {
         count: `${add + 1}`,
       },
@@ -147,7 +164,7 @@ async function clicklikebtn(val) {
     id.classList.remove("red");
     count.innerHTML = add - 1;
     await axios.post(
-      `http://127.0.0.1:3030/decrecount/${val}`,
+      `https://sivaprakashblog.onrender.com/decrecount/${val}`,
       {
         count: `${add - 1}`,
       },

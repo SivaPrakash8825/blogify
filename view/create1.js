@@ -20,15 +20,21 @@ closebtn.addEventListener("click", () => {
   slideholder.classList.add("active");
 });
 window.addEventListener("DOMContentLoaded", async () => {
-  const vale = await axios.get("http://127.0.0.1:3030/checkcook", {
-    withCredentials: true,
-  });
+  const vale = await axios.get(
+    "https://sivaprakashblog.onrender.com/checkcook",
+    {
+      withCredentials: true,
+    }
+  );
   if (vale.data != "exists") {
     window.location = "http://127.0.0.1:5500/view/index.html";
   } else {
-    const val = await axios.get("http://127.0.0.1:3030/homedata", {
-      withCredentials: true,
-    });
+    const val = await axios.get(
+      "https://sivaprakashblog.onrender.com/homedata",
+      {
+        withCredentials: true,
+      }
+    );
     const dat = val.data;
     setheadimg(dat[0].user_id);
     username.innerHTML = dat[0].username;
@@ -36,7 +42,9 @@ window.addEventListener("DOMContentLoaded", async () => {
 });
 
 async function setheadimg(id) {
-  const val = await axios.get(`http://127.0.0.1:3030/getavatar/${id}`);
+  const val = await axios.get(
+    `https://sivaprakashblog.onrender.com/getavatar/${id}`
+  );
   document.querySelector(".profile img").src = "./images/" + val.data[0].avatar;
   document.querySelector("#imghead img").src = "./images/" + val.data[0].avatar;
 }
@@ -48,7 +56,7 @@ async function payload() {
     return 0;
   } else {
     const val = await axios.post(
-      "http://127.0.0.1:3030/setdata",
+      "https://sivaprakashblog.onrender.com/setdata",
       {
         titleval: `${title.value}`,
         describe: `${textarea.value}`,

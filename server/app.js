@@ -18,7 +18,12 @@ const mysql = require("mysql");
 app.use(bodyparser.urlencoded({ extended: true }));
 
 app.use(bodyparser.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:5500",
+    credentials: true,
+  })
+);
 
 const con = mysql.createConnection({
   host: process.env.HOST,

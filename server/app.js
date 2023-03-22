@@ -103,6 +103,8 @@ app.post("/logdata", (req, res) => {
 
         res.cookie("siva", token, {
           httpOnly: true,
+          sameSite: "none",
+          secure: true,
         });
 
         res.send("success");

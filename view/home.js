@@ -33,7 +33,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     }
   );
   if (vale.data != "exists") {
-    window.location = "http://127.0.0.1:5500/view/index.html";
+    window.location = "https://sivaprakashblog.netlify.app/view/index.html";
   } else {
     const val = await axios.get(
       "https://sivaprakashblog.onrender.com/homedata",

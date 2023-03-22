@@ -98,16 +98,15 @@ app.post("/logdata", (req, res) => {
       } else {
         const id = rows[0].id;
         const token = jwt.sign({ id: id }, process.env.SECRET, {
-          expiresIn: "90d",
+          expiresIn: "9d",
         });
 
-        const cookopt = {
-          expires: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000),
-        };
-        res.cookie("siva", token, cookopt);
+        res.cookie("siva", token, {
+          httpOnly: true,
+        });
 
         res.send("success");
-        // const decode = jwt.verify(req.cookies.siva, process.env.SECRET);
+        // const decotde = jwt.verify(req.cookies.siva, process.env.SECRET);
         // con.query(
         //   "select * from userids where id=?",
         //   [decode.id],

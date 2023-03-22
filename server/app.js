@@ -25,15 +25,6 @@ app.use(
   })
 );
 
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
-
 const con = mysql.createConnection({
   host: process.env.HOST,
   user: process.env.USER,
@@ -45,15 +36,6 @@ app.use(cookieparser());
 
 app.get("/", (req, res) => {
   res.send("siva");
-});
-
-app.get("/siva", (req, res) => {
-  const obj = {
-    name: "siva",
-    age: "70",
-  };
-
-  res.status(201).send(obj);
 });
 
 app.get("/checkcook", (req, res) => {

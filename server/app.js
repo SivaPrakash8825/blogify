@@ -20,7 +20,7 @@ app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
 app.use(
   cors({
-    origin: "http://127.0.0.1:5500",
+    origin: "http://localhost:5500",
     credentials: true,
   })
 );
@@ -97,6 +97,7 @@ app.post("/logdata", (req, res) => {
         res.cookie("siva", token, option, {
           httpOnly: true,
           sameSite: "none",
+          path: "/",
           secure: true,
         });
 

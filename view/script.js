@@ -1,4 +1,4 @@
-import axios from "./node_modules/axios/dist/axios.min";
+import axios from "./node_modules/axios";
 
 const text = document.querySelectorAll(".container h1");
 const email = document.querySelector("#reg-mail");

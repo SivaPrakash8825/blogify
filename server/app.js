@@ -146,10 +146,11 @@ app.get("/homedata", async (req, res) => {
 
 app.get("/removecookie", async (req, res) => {
   res.clearCookie("siva", {
+    expires: new Date(Date.now() + 90 * 60 * 60 * 24 * 1000),
     httpOnly: true,
     sameSite: "none",
-    secure: true,
     path: "/",
+    secure: true,
   });
   res.send("removed");
 });

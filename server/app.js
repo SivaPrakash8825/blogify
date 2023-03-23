@@ -145,7 +145,12 @@ app.get("/homedata", async (req, res) => {
 });
 
 app.get("/removecookie", async (req, res) => {
-  res.clearCookie("siva");
+  res.clearCookie("siva", {
+    httpOnly: true,
+    sameSite: "none",
+    secure: true,
+    path: "/",
+  });
   res.send("removed");
 });
 

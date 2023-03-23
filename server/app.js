@@ -93,13 +93,12 @@ app.post("/logdata", (req, res) => {
         });
         const option = {
           expires: new Date(Date.now() + 90 * 60 * 60 * 24 * 1000),
-        };
-        res.cookie("siva", token, option, {
           httpOnly: true,
           sameSite: "none",
-
+          path: "/",
           secure: true,
-        });
+        };
+        res.cookie("siva", token, option);
 
         res.send("success");
         // const decotde = jwt.verify(req.cookies.siva, process.env.SECRET);
@@ -144,7 +143,6 @@ app.get("/homedata", async (req, res) => {
     res.send("error");
   }
 });
-function siva(req, res, next) {}
 
 app.get("/removecookie", async (req, res) => {
   res.clearCookie("siva");

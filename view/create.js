@@ -12,7 +12,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     }
   );
   if (vale.data != "exists") {
-    window.location = "https://sivaprakashblog.netlify.app/view/index.html";
+    window.location = "http://127.0.0.1:5500/view/index.html";
   } else {
     const urlparam = new URLSearchParams(window.location.search);
     const id = urlparam.get("conid");
@@ -47,5 +47,5 @@ async function payload() {
 }
 
 function gohomepage() {
-  window.location = "https://sivaprakashblog.netlify.app/view/editprofile.html";
+  window.location = "http://127.0.0.1:5500/view/editprofile.html";
 }

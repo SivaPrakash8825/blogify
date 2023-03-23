@@ -1,5 +1,3 @@
-import axios from "./node_modules/axios/dist/axios.min.js";
-
 const text = document.querySelectorAll(".container h1");
 const email = document.querySelector("#reg-mail");
 const reg_pass = document.querySelector("#reg-pass");
@@ -23,7 +21,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     }
   );
   if (val.data === "exists") {
-    window.location = "https://sivaprakashblog.netlify.app/view/home.html";
+    window.location = "http://127.0.0.1:5500/view/home.html";
   }
 });
 
@@ -42,7 +40,7 @@ async function postlogdata() {
   console.log(data);
 
   if (data != "error") {
-    window.location.href = "https://sivaprakashblog.netlify.app/view/home.html";
+    window.location.href = "http://127.0.0.1:5500/view/home.html";
   }
 }
 

@@ -5,7 +5,7 @@ const dotenv = require("dotenv");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const cookieparser = require("cookie-parser");
-port = process.env.port || 3030;
+port = process.env.port || 3010;
 
 dotenv.config({
   path: "./.env",
@@ -20,7 +20,7 @@ app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
 app.use(
   cors({
-    origin: "https://sivaprakashblog.netlify.app",
+    origin: "http://127.0.0.1:5500",
     credentials: true,
   })
 );
@@ -91,8 +91,10 @@ app.post("/logdata", (req, res) => {
         const token = jwt.sign({ id: id }, process.env.SECRET, {
           expiresIn: "9d",
         });
-
-        res.cookie("siva", token, {
+        const option = {
+          expires: new Date(Date.now() + 90 * 60 * 60 * 24 * 1000),
+        };
+        res.cookie("siva", token, option, {
           httpOnly: true,
           sameSite: "none",
           secure: true,
@@ -144,10 +146,7 @@ app.get("/homedata", async (req, res) => {
 function siva(req, res, next) {}
 
 app.get("/removecookie", async (req, res) => {
-  res.cookie("siva", "logout", {
-    expires: new Date(0),
-    httpOnly: true,
-  });
+  res.clearCookie("siva");
   res.send("removed");
 });
 

@@ -1,4 +1,4 @@
-const axios = require("axios");
+import axios from "axios";
 
 const text = document.querySelectorAll(".container h1");
 const email = document.querySelector("#reg-mail");

@@ -1,5 +1,5 @@
 function gohomepage() {
-  window.location = "http://127.0.0.1:5500/view/home.html";
+  window.location = "https://sivaprakashblog.netlify.app/home.html";
 }
 const preloader = document.getElementById("preloader");
 window.addEventListener("load", () => {
@@ -27,7 +27,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     }
   );
   if (vale.data != "exists") {
-    window.location = "http://127.0.0.1:5500/view/index.html";
+    window.location = "https://sivaprakashblog.netlify.app/index.html";
   } else {
     const val = await axios.get(
       "https://sivaprakashblog.onrender.com/homedata",

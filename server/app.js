@@ -20,7 +20,7 @@ app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
 app.use(
   cors({
-    origin: "http://127.0.0.1:5500",
+    origin: "https://sivaprakashblog.netlify.app",
     credentials: true,
   })
 );
